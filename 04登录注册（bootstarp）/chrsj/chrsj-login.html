@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- Mirrored from coderthemes.com/ubold_2.2/light/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2017 12:50:47 GMT -->
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+		<meta name="author" content="Coderthemes">
+
+		<link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+		<title>食品安全作业人员考试系统</title>
+
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<link href="css/responsive.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+
+		<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	</head>
+
+	<body class="pace-done">
+		<div class="pace  pace-inactive">
+			<div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+				<div class="pace-progress-inner"></div>
+			</div>
+			<div class="pace-activity"></div>
+		</div>
+
+		<div class="jf-body-box clearfix">
+			<div class="signinpanel" onload="init()">
+				<div class="row">
+					<div class="col-xs-10 col-sm-8">
+						<div class="signin-info">
+							<div class="logopanel m-b" style="margin-left: -5%;">
+								<h1>
+									<img alt="" src="images/guohui.png" style="width: 100px; height: 100px;"> &nbsp; 食品安全作业人员考试系统
+								</h1>
+								<!-- <h1 style="font-family:楷体;color:#454545;font-size:45px;" ><img alt="" src="/kygl/assets/img/kjxy.png" style="width: 100px ;height: 100px ;">&nbsp;科研管理系统</h1> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-10 col-sm-4">
+
+						<h4 class="no-margins">欢迎来到考试管理系统</h4>
+						<!-- <select  class="selectpicker" id="model">
+      				</select> -->
+						<input type="text" id="id" name="id" class="form-control uname" placeholder="用户名">
+						<input type="password" id="name" name="name" class="form-control pword m-b" placeholder="密码">
+						<input type="text" id="code" name="code" class="form-control pword m-b" placeholder="验证码">
+						<img class="form-control-yanzhengma" src="images/yanzhengma.jpg">
+						<!-- 	<a href="tysms.html" target="_blank" style="color: red;">使用说明书</a>  -->
+						<button id="login" class="btn btn-primary btn-block">登录</button>
+					</div>
+				</div>
+				<div class="signup-footer">
+					<div class="pull-left">
+						<!-- 科技学院@2017 -->
+						© 巢湖人社局 @2018
+					</div>
+				</div>
+			</div>
+
+			<!-- 浏览器版本错误-->
+			<div class="modal fade" id="llqbbcwModel">
+				<div class="modal-dialog" style="width: 350px;">
+					<div class="modal-content message_align">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+							<h4 class="modal-title">提示信息</h4>
+						</div>
+						<div class="modal-body">
+							<center>
+								<p>本系统对浏览器要求最低为IE 10.0以上,建议使用火狐浏览器!</p>
+							</center>
+						</div>
+						<div class="modal-footer">
+							<input type="hidden" id="url">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 选取判断2-->
+			<div class="modal fade" id="dlcwModel">
+				<div class="modal-dialog" style="width: 350px;">
+					<div class="modal-content message_align">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+							<h4 class="modal-title">提示信息</h4>
+						</div>
+						<div class="modal-body">
+							<center>
+								<p style="color: black;">您填写的信息有误!</p>
+							</center>
+						</div>
+						<div class="modal-footer">
+							<input type="hidden" id="">
+							<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery  -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/detect.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script src="js/jquery.slimscroll.js"></script>
+		<script src="js/jquery.blockUI.js"></script>
+		<script src="js/waves.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/jquery.nicescroll.js"></script>
+		<script src="js/jquery.scrollTo.min.js"></script>
+
+		<script src="js/jquery.core.js"></script>
+		<script src="js/jquery.app.js"></script>
+
+	</body>
+
+	<!-- Mirrored from coderthemes.com/ubold_2.2/light/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2017 12:50:47 GMT -->
+
+</html>

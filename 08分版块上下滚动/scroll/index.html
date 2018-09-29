@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery左侧滑动可定位网页（支持上下滑动）</title>
+<link rel="stylesheet" href="css/demo.css" type="text/css" media="all" />
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/pagescroller.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var navLabel = new Array('Introduction', 'How It Works', "What's Included?", 'Documentation', 'Download Plugin');
+	$('#main').pageScroller({ navigation: navLabel });
+	$('.next').click(function(e){
+		e.preventDefault();
+		pageScroller.next();
+	});
+	$('.prev').click(function(e){
+		e.preventDefault();
+		pageScroller.prev();
+	});
+});	
+</script>
+</head>
+<body>
+<div id="div_box" class="light">
+	<a href="#" class="prev"><img src="./images/icon_arrow-up_light.png" alt="" width="28" height="31" /></a>
+	<a href="#" class="next"><img src="./images/icon_arrow-down_light.png" alt="" width="28" height="31" /></a>	</div>
+<div id="wrapper">
+	<div id="main">
+		<div class="section"><h1>Section 1</h1></div>
+		<div class="section"><h1>Section 2</h1></div>
+		<div class="section"><h1>Section 3</h1></div>
+		<div class="section"><h1>Section 4</h1></div>
+		<div class="section"><h1>Section 5</h1></div>
+	</div><!-- [END] #main -->
+</div><!-- [END] #wrapper -->
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+<p>来源：<a href="http://www.xwcms.net/" target="_blank">xw素材网</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>ajax测试</title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//兼容浏览器的XMLHttpRequest
+			function createXHR() {
+				if(typeof XMLHttpRequest != 'undefined') {
+					return new XMLHttpRequest(); //支持XMLHttpRequest()
+				} else if(typeof ActiveXObject != 'undefined') {
+					var version = [
+						'MSXML2.XMLHttp.6.0',
+						'MSXML2.XMLHttp.3.0',
+						'MSXML2.XMLHttp'
+					];
+					for(var i = 0; version.length; i++) {
+						try {
+							return new ActiveXObject(version[i]);
+						} catch(e) {
+							//跳过
+						}
+					}
+				} else {
+					throw new Error('您的系统或者浏览器不支持XHR对象！');
+				}
+			}
+
+			//名值对转换为字符串
+			function params(data) {
+				var arr = [];
+				for(var i in data) {
+					arr.push(encodeURIComponent(i) + '=' + encodeURIComponent(data[i]));
+				}
+				return arr.join('&');
+			}
+
+			//封装Ajax
+			function ajax(obj) {
+				//
+				function callback() {
+					if(xhr.status == 200) {
+						obj.success(xhr.responseText);
+					} else {
+						alert('获取数据错误！错去代号：' + xhr.status + '错误信息：' + xhr.statusText);
+					}
+				}
+
+				//创建XHR对象
+				var xhr = createXHR();
+				//创建url
+				obj.url = obj.url + '?rand=' + Math.random(); //随机字符串解决缓存问题
+				obj.data = params(obj.data);
+				//get方式
+				if(obj.method === 'get') {
+					if(obj.url.indexOf('?') == -1) {
+						obj.url = obj.url + '?' + obj.data;
+					} else {
+						obj.url = obj.url + '&' + obj.data;
+					}
+				}
+				//异步
+				if(obj.async === true) {
+					xhr.onreadystatechange = function() {
+						if(xhr.readyState == 4) {
+							callback();
+						}
+					}
+				}
+
+				//准备发送请求
+				xhr.open(obj.method, obj.url, obj.async);
+
+				//post方式
+				if(obj.method === 'post') {
+					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+					xhr.send(obj.data);
+				} else {
+					xhr.send(null);
+				}
+				//同步
+				if(obj.async === false) {
+					callback();
+				}
+
+			}
+
+			//调用Ajax
+			document.onclick = function() {
+				ajax({
+					method: 'get', //get方法	post方法
+					url: '07ajax/php/test.php',
+					data: {
+						'na&me': 'Le&e',
+						'age': 100
+					},
+					success: function(data) {
+						var oo = data.result;
+						var one = document.getElementById('one');
+						for (var i=1;i<oo.length;i++) {
+							one.innerHTML = oo[i].currentCity;
+						}
+//						alert(oo);
+					},
+					async: false //true异步	false同步
+				});
+			};
+		</script>
+	</head>
+
+	<body>
+		<!--<form action="" method="post">
+			用户名：
+			<input type="text" value=""/>
+			密码：
+			<input type="password" name="" id="" value="" />
+			<input type="submit" name="" id="" value="提交" />
+		</form>-->
+		<div id="one">
+
+		</div>
+	</body>
+
+</html>
